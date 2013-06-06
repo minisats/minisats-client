@@ -1,3 +1,13 @@
+# OSX
+.DS_Store
+
+# Hyde
+tmp
+deploy
+bkp
+*.log
+.hyde_deps
+
 *.py[cod]
 
 # C extensions
