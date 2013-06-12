@@ -1,43 +1,7 @@
 var id_address, deposit_address;
 var balance;
 
-function unformat_balance(amount, denomination) { //returns the amount of nsats represented by the argument pair
-    if (denomination == "BTC") return amount * 100000000000000000;
-    else if (denomination == "MSats") return amount * 1000000000000000;
-    else if (denomination == "KSats") return amount * 1000000000000;
-    else if (denomination == "Satoshis") return amount * 1000000000;
-    else if (denomination == "mSats") return amount * 1000000;
-    else if (denomination == "uSats") return amount * 1000;
-    else return amount;
-}
 
-function format_balance(nsats) { //formats the amount of nsats to be a bit easier to read
-    var value;
-    var denomination;
-    if (nsats >= 100000000000000000) {
-        value = nsats / 100000000000000000;
-        denomination = "BTC";
-    } else if (nsats >= 1000000000000000) {
-        value = nsats / 1000000000000000;
-        denomination = "MSats";
-    } else if (nsats >= 1000000000000) {
-        value = nsats / 1000000000000;
-        denomination = "KSats";
-    } else if (nsats >= 1000000000) {
-        value = nsats / 1000000000;
-        denomination = "Satoshis";
-    } else if (nsats >= 1000000) {
-        value = nsats / 1000000;
-        denomination = "mSats";
-    } else if (nsats >= 1000) {
-        value = nsats / 1000;
-        denomination = "uSats";
-    } else {
-        value = nsats;
-        denomination = "nSats";
-    }
-    return "<a style='font-size:20px'>" + value + "</a> " + denomination;
-}
 
 function refresh_info() { //doesn't fetch anything, but just displays the stored values appropriately
     if (deposit_address != undefined && deposit_address != null) {

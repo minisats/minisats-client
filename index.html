@@ -1,0 +1,94 @@
+<!doctype html>
+<!--
+    Minisats
+    Copyright (C) 2013  Carlos Killpack, minisats_maker
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<html>
+    <head>
+        <title>Minisats Client</title>
+        <!-- styles -->
+        <link rel="stylesheet" type="text/css" href="static/style/normalize.css" />
+        <link rel="stylesheet" type="text/css" href="static/style/satoshi.css" />
+        <!-- js -->
+        <script type="text/javascript" src="static/js/mootools-core-1.4.5-yc.js"></script>
+        <script type="text/javascript" src="static/js/pure-min.js"></script>
+        <script type="text/javascript" src="static/js/minisats.js"></script>
+    </head>
+    <body>
+        <div id="user" class="card user">
+            <h1>1</h1>
+            <p>
+            Enter the Bitcoin address you want to use for tipping
+            </p>
+            <p>
+            (Your balance will be shown below)
+            </p>
+            <p>
+                <input type="text" id="userAddress" size="45" placeholder="Your BTC Address" />
+            </p>
+            <p id="balance" class="balance in_btc">123</p>
+            <p>
+                <a class="next" href="#action">Next</a>
+                (<a class="next" href="#home">Start Over</a>)
+            </p>
+        </div>
+        <div id="action" class="card action">
+            <h1>2</h1>
+            <form class="send_tip">
+                <input type="text" id="destAddress" size="45" placeholder="Destination BTC Address" />
+                <p>
+                    <input type="number" id="tipAmount" placeholder="Tip Amount" />
+                    <select id="tipDenomination" class="select_denomination">
+                        <option value=""></option>
+                    </select>
+                    <a href="#help">?</a>
+                </p>
+                <p>
+                    <textarea placeholder="Memo"></textarea>
+                </p>
+            </form>
+            <form class="deposit">
+                <input type="number" id="depositAmount" placeholder="Deposit Amount" />
+                <select id="depositDenomination" class="select_denomination">
+                    <option value=""></option>
+                </select>
+                <a href="#help">?</a>
+            </form>
+            <p>
+                <a class="next" href="#confirm">Next</a>
+                (<a class="next" href="#home">Start Over</a>)
+            </p>
+        </div>
+        <div id="confirm" class="card confirm">
+            <h1>3</h1>
+            <p>
+            Make sure this is what you meant to do.
+            </p>
+            <p>
+                <a class="next" href="#home">Start over</a>
+            </p>
+        </div>
+        <div id="help" class="card help">
+            <p></p>
+        </div>
+        <div id="home" class="card home">
+            <h1>0</h1>
+            <p>
+            Click <a href="#user">here</a> to get started.
+            </p>
+        </div>
+    </body>
+</html>
