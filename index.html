@@ -1,7 +1,7 @@
 <!doctype html>
 <!--
     Minisats
-    Copyright (C) 2013  Carlos Killpack, minisats_maker
+    Copyright (C) 2013  Carlos Killpack
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as
@@ -28,6 +28,7 @@
         <script type="text/javascript" src="static/js/minisats.js"></script>
     </head>
     <body>
+        <!-- User -->
         <div id="user" class="card user">
             <h1>1</h1>
             <p>
@@ -36,21 +37,25 @@
             <p>
             (Your balance will be shown below)
             </p>
-            <p>
+            <form class="get_user">
                 <input type="text" id="userAddress" size="45" placeholder="Your BTC Address" />
-            </p>
-            <p id="balance" class="balance in_btc">123</p>
+                <button id="getUserAddress">Go</button>
+            </form>
+            <p id="balance" class="balance in_btc"></p>
+            <p id="depositID" class="deposit_id"></p>
             <p>
-                <a class="next" href="#action">Next</a>
+                <a id="user_next" class="next">Next</a>
                 (<a class="next" href="#home">Start Over</a>)
             </p>
         </div>
-        <div id="action" class="card action">
+        <!-- Action -->
+        <div id="action.send" class="card action send">
             <h1>2</h1>
             <form class="send_tip">
                 <input type="text" id="destAddress" size="45" placeholder="Destination BTC Address" />
                 <p>
-                    <input type="number" id="tipAmount" placeholder="Tip Amount" />
+                    <input type="number" min="0" id="tipAmount" placeholder="Tip Amount" />
+                    <!-- Pure.js template, will be filled by js -->
                     <select id="tipDenomination" class="select_denomination">
                         <option value=""></option>
                     </select>
@@ -60,8 +65,16 @@
                     <textarea placeholder="Memo"></textarea>
                 </p>
             </form>
+            <p>
+                <a class="next" href="#confirm">Next</a>
+                (<a class="next" href="#home">Start Over</a>)
+            </p>
+        </div>
+        <div id="action.deposit" class="card action deposit">
+            <h1>2</h1>
             <form class="deposit">
-                <input type="number" id="depositAmount" placeholder="Deposit Amount" />
+                <input type="number" min="0" id="depositAmount" placeholder="Deposit Amount" />
+                <!-- Pure.js template, fill be filled by js -->
                 <select id="depositDenomination" class="select_denomination">
                     <option value=""></option>
                 </select>
@@ -72,17 +85,27 @@
                 (<a class="next" href="#home">Start Over</a>)
             </p>
         </div>
+        <!-- Confirmation -->
         <div id="confirm" class="card confirm">
             <h1>3</h1>
             <p>
             Make sure this is what you meant to do.
             </p>
             <p>
+                <a id="confirm">Confirm</a>
                 <a class="next" href="#home">Start over</a>
             </p>
         </div>
+        <!-- Aux -->
         <div id="help" class="card help">
             <p></p>
+        </div>
+        <div id="tx" class="card tx">
+            <h1 class="status"></h1>
+            <p class="message"></p>
+            <p>
+                <a class="next" href="#home">Do something else?</a>
+            </p>
         </div>
         <div id="home" class="card home">
             <h1>0</h1>
